@@ -168,10 +168,7 @@ const Replenishment = () => {
       </Grid>
       <Grid item xs={12} display={'flex'} justifyContent={'end'} marginTop={'20px'}>
         <Paper elevation={2} sx={{ height: "60px", padding: '15px',}}>
-          {/* <TextField label="O" sx={{width: '2em'}}/>
-            <Button variant="contained" sx={{ width: "100px" }}>
-              Save
-            </Button> */}
+      
           <Box sx={{marginTop: '10px', display: 'flex'}}>
             <span style={{ marginRight: "15px", marginTop: '5px' }}>Notes</span>
             <Input

@@ -17,6 +17,8 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import CycleCount from "../Components/tabs/CycleCount";
 import Replenishment from "../Components/tabs/Replenishment";
 import Summary from "../Components/tabs/Summary";
+import Openings from "../Components/tabs/Openings";
+import Details from "../Components/tabs/Details";
 
 // import { Container } from "@mui/system";
 const Page = () => {
@@ -39,16 +41,16 @@ const Page = () => {
 
   const availableValues = [
     {
-      label: 'Ten',
-      value: 10
+      label: "Ten",
+      value: 10,
     },
     {
-      label: 'Twenty',
-      value: 20
+      label: "Twenty",
+      value: 20,
     },
     {
-      label: 'Thirty',
-      value: 30
+      label: "Thirty",
+      value: 30,
     },
   ];
 
@@ -111,9 +113,14 @@ const Page = () => {
                     defaultValue={item.value}
                     onChange={handleChange}
                   >
-                    {availableValues.map((item) =>
-                      <MenuItem value={item.value} key={`${item.label}-${item.value}`}>{item.label}</MenuItem>
-                    )}
+                    {availableValues.map((item) => (
+                      <MenuItem
+                        value={item.value}
+                        key={`${item.label}-${item.value}`}
+                      >
+                        {item.label}
+                      </MenuItem>
+                    ))}
                   </Select>
                 </Box>
               </Box>
@@ -154,9 +161,14 @@ const Page = () => {
                 value={availableValues[0].value}
                 onChange={handleChange}
               >
-                {availableValues.map((item) =>
-                  <MenuItem value={item.value} key={`${item.label}-${item.value}`}>{item.label}</MenuItem>
-                )}
+                {availableValues.map((item) => (
+                  <MenuItem
+                    value={item.value}
+                    key={`${item.label}-${item.value}`}
+                  >
+                    {item.label}
+                  </MenuItem>
+                ))}
               </Select>
             </Box>
           </Grid>
@@ -195,8 +207,18 @@ const Page = () => {
                   />
                   <Tab
                     sx={{ textTransform: "none !important" }}
-                    label="Summary"
+                    label="Openings"
                     value="3"
+                  />
+                   <Tab
+                    sx={{ textTransform: "none !important" }}
+                    label="Summary"
+                    value="4"
+                  />
+                   <Tab
+                    sx={{ textTransform: "none !important" }}
+                    label="Details"
+                    value="5"
                   />
                 </TabList>
               </Box>
@@ -207,7 +229,13 @@ const Page = () => {
                 <Replenishment />
               </TabPanel>
               <TabPanel value="3">
+                <Openings />
+              </TabPanel>
+              <TabPanel value="4">
                 <Summary />
+              </TabPanel>
+              <TabPanel value="5">
+                <Details />
               </TabPanel>
             </TabContext>
           </Box>
