@@ -1,18 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  Container,
-  CssBaseline,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Paper,
-  Select,
-  Tab,
-  Tabs,
-  TextField,
-} from "@mui/material";
+import { Box, Grid, MenuItem, Paper, Select, Tab } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import CycleCount from "../Components/tabs/CycleCount";
 import Replenishment from "../Components/tabs/Replenishment";
@@ -20,9 +7,7 @@ import Summary from "../Components/tabs/Summary";
 import Openings from "../Components/tabs/Openings";
 import Details from "../Components/tabs/Details";
 
-// import { Container } from "@mui/system";
 const Page = () => {
-  // const [age, setAge] = React.useState("");
   const [value, setValue] = React.useState("1");
   const [data, setData] = React.useState([
     {
@@ -74,13 +59,11 @@ const Page = () => {
       sx={{
         display: "flex",
         justifyContent: "center",
-        // border: "2px solid red",
       }}
     >
       <Paper
         elevation={2}
         sx={{
-          // height: "60em",
           width: "90em",
         }}
       >
@@ -157,7 +140,6 @@ const Page = () => {
                   width: "250px",
                   height: "35px",
                 }}
-                // name={item.title}
                 value={availableValues[0].value}
                 onChange={handleChange}
               >
@@ -210,12 +192,12 @@ const Page = () => {
                     label="Openings"
                     value="3"
                   />
-                   <Tab
+                  <Tab
                     sx={{ textTransform: "none !important" }}
                     label="Summary"
                     value="4"
                   />
-                   <Tab
+                  <Tab
                     sx={{ textTransform: "none !important" }}
                     label="Details"
                     value="5"

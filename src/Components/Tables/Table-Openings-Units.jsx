@@ -143,7 +143,7 @@ export default function CustomPaginationActionsTable() {
         <TableHead>
           <TableRow>
             {header.map((item) => (
-              <StyledTableCell sx={{ fontSize: "12px", borderRight: '1px solid gray' }}>
+              <StyledTableCell sx={{ fontSize: "12px"}}>
                 {item}
               </StyledTableCell>
             ))}
@@ -201,7 +201,7 @@ export default function CustomPaginationActionsTable() {
           <TableRow>
             <TablePagination
               rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
-              colSpan={4}
+              colSpan={12}
               count={rows.length}
               rowsPerPage={rowsPerPage}
               page={page}

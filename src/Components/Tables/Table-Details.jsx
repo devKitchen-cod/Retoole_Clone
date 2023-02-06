@@ -19,7 +19,7 @@ import { styled } from "@mui/material/styles";
 import TableHead from "@mui/material/TableHead";
 import Input from "@mui/joy/Input";
 import { CheckBox } from "@mui/icons-material";
-import { rows } from "../mockData/mock-data-table-openings";
+import { rows } from "../mockData/mock-data-table-details";
 
 export function TablePaginationActions(props) {
   const theme = useTheme();
@@ -91,16 +91,15 @@ TablePaginationActions.propTypes = {
 };
 
 const header = [
-  "Internal Ref",
-  "Selected Units",
-  "King Beds",
-  "Queen Beds",
-  "Double Beds",
-  "Single Beds",
-  "Sofa Bed",
-  "Kitchens",
-  "Bathrooms",
-  "Mark to Onboard",
+  "Item",
+  "Target Market Qty",
+  "In Market Qty",
+  "Recommended Qty",
+  "Qty in Unit",
+  "Qty in Laundry",
+  "Qty in Transit",
+  "Qty On Shelf",
+  
 ];
 
 export default function CustomPaginationActionsTable() {
@@ -157,37 +156,31 @@ export default function CustomPaginationActionsTable() {
           ).map((row) => (
             <StyledTableRow key={row.name}>
               <StyledTableCell  component="th" scope="row">
-                {row.InternalRef}
+                {row.Item}
               </StyledTableCell>
               <StyledTableCell  align="center" component="th" scope="row">
                 {/* <Input placeholder={row.ItemCost} variant='plain'/> */}
-                {row.SelectedUnits}
+                {row.TargetMarketQty}
               </StyledTableCell>
               <StyledTableCell align="center" component="th" scope="row">
-                {row.KingBeds}
+                {row.InMarketQty}
               </StyledTableCell>
               <StyledTableCell align="center" component="th" scope="row">
-                {row.QueenBeds}
+                {row.RecommendedQty}
               </StyledTableCell>
               <StyledTableCell align="center" component="th" scope="row">
-                {row.DoubleBeds}
+                {row.QtyinUnit}
               </StyledTableCell>
               <StyledTableCell align="center" component="th" scope="row">
-                {row.SingleBeds}
+                {row.QtyinLaundry}
               </StyledTableCell>
               <StyledTableCell align="center" component="th" scope="row">
-                {row.SofaBed}
+                {row.QtyinTransit}
               </StyledTableCell>
               <StyledTableCell align="center" component="th" scope="row">
-                {row.Kitchens}
+                {row.QtyOnShelf}
               </StyledTableCell>
-              <StyledTableCell align="center" component="th" scope="row">
-                {row.Bathrooms}
-              </StyledTableCell>
-              <StyledTableCell align="center" component="th" scope="row">
-                {/* {row.MarktoOnboard} */}
-                <CheckBox />
-              </StyledTableCell>
+              
             </StyledTableRow>
           ))}
 

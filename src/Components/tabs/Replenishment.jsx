@@ -1,17 +1,13 @@
-import { Button, Grid,  Paper, TextField } from "@mui/material";
+import { Button, Grid, Paper } from "@mui/material";
 import Input from "@mui/joy/Input";
-import ChipDelete from "@mui/joy/ChipDelete";
-
-import { Box, fontSize, fontWeight } from "@mui/system";
+import { Box } from "@mui/system";
 import React from "react";
 import MyChipCom from "../myChipCom";
-// import TableT from "../Tables/table";
 import TablesRep from "../Tables/Table-Replenishment";
-// import DataGridProDemo from './dataGrid';
 
 const Replenishment = () => {
   return (
-    <Grid container direction={"column"} xs={12} rowSpacing={3}>
+    <Grid container direction={"column"} xs={12} rowSpacing={5}>
       <Grid item>
         <Paper elevation={5}>
           <Box
@@ -166,16 +162,24 @@ const Replenishment = () => {
           </Box>
         </Paper>
       </Grid>
-      <Grid item xs={12} display={'flex'} justifyContent={'end'} marginTop={'20px'}>
-        <Paper elevation={2} sx={{ height: "60px", padding: '15px',}}>
-      
-          <Box sx={{marginTop: '10px', display: 'flex'}}>
-            <span style={{ marginRight: "15px", marginTop: '5px' }}>Notes</span>
+      <Grid
+        item
+        xs={12}
+        display={"flex"}
+        justifyContent={"end"}
+        marginTop={"20px"}
+      >
+        <Paper elevation={2} sx={{ height: "60px", padding: "15px" }}>
+          <Box sx={{ marginTop: "10px", display: "flex" }}>
+            <span style={{ marginRight: "15px", marginTop: "5px" }}>Notes</span>
             <Input
               placeholder="Enter Order Notes"
               variant="outlined"
-              size ='sm'
-              sx={{  marginRight: '10px', borderColor: 'rgb(219, 219, 219) !important' }}
+              size="sm"
+              sx={{
+                marginRight: "10px",
+                borderColor: "rgb(219, 219, 219) !important",
+              }}
             />
             <Button variant="contained" sx={{ width: "100px" }}>
               Save

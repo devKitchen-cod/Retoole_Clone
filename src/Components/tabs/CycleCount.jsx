@@ -1,23 +1,17 @@
-import { DatePicker, LocalizationProvider } from "@mui/lab";
 import {
   Button,
   Grid,
-  Input,
   MenuItem,
   Paper,
   Select,
   TextField,
-  tooltipClasses,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import Tables from "../Tables/Table-Cycle-Count";
 
 const CycleCount = () => {
-  const [value, setValue] = React.useState(null);
   const shelf = 0;
-  const transit = 0;
-  const total = 0;
 
   return (
     <Paper
@@ -33,7 +27,7 @@ const CycleCount = () => {
         }}
       >
         <Grid container direction="column">
-          <Grid item xs={5} sx={{}}>
+          <Grid item xs={5}>
             <Box
               sx={{
                 margin: "5px",

@@ -2,6 +2,7 @@ import { Box, Button, Grid, Paper } from "@mui/material";
 import React from "react";
 import TableOpenings from "../Tables/Table-Openings-Buildings";
 import TabOpeningsUnits from "../Tables/Table-Openings-Units";
+
 const Openings = () => {
   const data = [
     {
@@ -101,9 +102,19 @@ const Openings = () => {
           </Box>
         </Paper>
       </Grid>
-      <Button variant="contained" sx={{ width: "200px", marginLeft: '1000px', marginTop: '30px' }}>
-        Save
-      </Button>{" "}
+
+      <Grid
+        item
+        xs={4}
+        sx={{ display: "flex", justifyContent: "end", marginTop: "20px" }}
+      >
+        <Button
+          variant="contained"
+          sx={{ width: "200px" }}
+        >
+          Save
+        </Button>
+      </Grid>
     </Grid>
   );
 };

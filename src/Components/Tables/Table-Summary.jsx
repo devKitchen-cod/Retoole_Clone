@@ -18,8 +18,6 @@ import LastPageIcon from "@mui/icons-material/LastPage";
 import { styled } from "@mui/material/styles";
 import TableHead from "@mui/material/TableHead";
 import Input from "@mui/joy/Input";
-import { CheckBox } from "@mui/icons-material";
-import { rows } from "../mockData/mock-data-table-openings";
 
 export function TablePaginationActions(props) {
   const theme = useTheme();
@@ -90,30 +88,98 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
+function createData(
+  Item,
+  ItemCost,
+  CasePackQty,
+  TargetMarktal,
+  InMarketQty,
+  RecommendedQty,
+  RecommendedCost,
+  BudgetedCost,
+  RequestedQty,
+  OrderCost,
+  OrderBudgeted
+) {
+  return {
+    Item,
+    ItemCost,
+    CasePackQty,
+    TargetMarktal,
+    InMarketQty,
+    RecommendedQty,
+    RecommendedCost,
+    BudgetedCost,
+    RequestedQty,
+    OrderCost,
+    OrderBudgeted,
+  };
+}
+
 const header = [
-  "Internal Ref",
-  "Selected Units",
-  "King Beds",
-  "Queen Beds",
-  "Double Beds",
-  "Single Beds",
-  "Sofa Bed",
-  "Kitchens",
-  "Bathrooms",
-  "Mark to Onboard",
+  "Item",
+  "Item Cost",
+  "Case Pack Qty",
+  "Target Mark",
+  "In Market Qty",
+  "Recommended Qty",
+  "Recommended Cost",
+  "Budgeted Cost",
+  "Requested Qty",
+  "Order Cost",
+  "Order Budgeted",
 ];
+
+const rows = [
+  createData("Cupcake", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Donut", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Eclair", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Frozen", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Gingerbread", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Honeycomb", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Ice", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Jelly Bean", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("KitKat", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Lollipop", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Marshmallow", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Nougat", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Oreo", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Ice", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Jelly Bean", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("KitKat", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Lollipop", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Marshmallow", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Nougat", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Oreo", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Ice", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Jelly Bean", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("KitKat", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Lollipop", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Marshmallow", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Nougat", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Oreo", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Ice", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Jelly Bean", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("KitKat", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Lollipop", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Marshmallow", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Nougat", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+  createData("Oreo", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+].sort((a, b) => (a.calories < b.calories ? -1 : 1));
 
 export default function CustomPaginationActionsTable() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  console.log(rows);
+
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: "rgb(219, 219, 219)",
+      //   backgroundColor: '#1A2027',
       color: "black",
     },
     [`&.${tableCellClasses.body}`]: {
       fontSize: 14,
+      //   backgroundColor:'green'
     },
   }));
 
@@ -143,7 +209,7 @@ export default function CustomPaginationActionsTable() {
         <TableHead>
           <TableRow>
             {header.map((item) => (
-              <StyledTableCell sx={{ fontSize: "12px"}}>
+              <StyledTableCell sx={{ fontSize: "12px" }}>
                 {item}
               </StyledTableCell>
             ))}
@@ -156,37 +222,39 @@ export default function CustomPaginationActionsTable() {
             : rows
           ).map((row) => (
             <StyledTableRow key={row.name}>
-              <StyledTableCell  component="th" scope="row">
-                {row.InternalRef}
+              <StyledTableCell component="th" scope="row">
+                {row.Item}
               </StyledTableCell>
-              <StyledTableCell  align="center" component="th" scope="row">
+              <StyledTableCell align="right" component="th" scope="row">
                 {/* <Input placeholder={row.ItemCost} variant='plain'/> */}
-                {row.SelectedUnits}
+                {row.ItemCost}
               </StyledTableCell>
-              <StyledTableCell align="center" component="th" scope="row">
-                {row.KingBeds}
+              <StyledTableCell align="right" component="th" scope="row">
+                {row.CasePackQty}
               </StyledTableCell>
-              <StyledTableCell align="center" component="th" scope="row">
-                {row.QueenBeds}
+              <StyledTableCell align="right" component="th" scope="row">
+                {row.TargetMarktal}
               </StyledTableCell>
-              <StyledTableCell align="center" component="th" scope="row">
-                {row.DoubleBeds}
+              <StyledTableCell align="right" component="th" scope="row">
+                {row.InMarketQty}
               </StyledTableCell>
-              <StyledTableCell align="center" component="th" scope="row">
-                {row.SingleBeds}
+              <StyledTableCell align="right" component="th" scope="row">
+                {row.RecommendedCost}
               </StyledTableCell>
-              <StyledTableCell align="center" component="th" scope="row">
-                {row.SofaBed}
+              <StyledTableCell align="right" component="th" scope="row">
+                {row.RecommendedQty}
               </StyledTableCell>
-              <StyledTableCell align="center" component="th" scope="row">
-                {row.Kitchens}
+              <StyledTableCell align="right" component="th" scope="row">
+                {row.BudgetedCost}
               </StyledTableCell>
-              <StyledTableCell align="center" component="th" scope="row">
-                {row.Bathrooms}
+              <StyledTableCell align="right" component="th" scope="row">
+                {row.RequestedQty}
               </StyledTableCell>
-              <StyledTableCell align="center" component="th" scope="row">
-                {/* {row.MarktoOnboard} */}
-                <CheckBox />
+              <StyledTableCell align="right" component="th" scope="row">
+                {row.OrderCost}
+              </StyledTableCell>
+              <StyledTableCell align="right" component="th" scope="row">
+                {row.OrderBudgeted}
               </StyledTableCell>
             </StyledTableRow>
           ))}
