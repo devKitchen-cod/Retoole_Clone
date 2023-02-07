@@ -101,7 +101,6 @@ export default function CustomPaginationActionsTable() {
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: "rgb(209, 209, 209)",
-      // backgroundColor: '#1A2027',
       color: "black",
     },
     [`&.${tableCellClasses.body}`]: {

@@ -1,10 +1,10 @@
-import {  Grid, Paper } from "@mui/material";
+import { Grid, Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
 import DownloadModal from "../modals/summary-download-modal";
 import MyChipCom from "../myChipCom";
 import TableSummary from "../Tables/Table-Summary";
-
+import styles from "./styles/summary.module.scss";
 const Summary = () => {
   const data = [
     {
@@ -51,59 +51,28 @@ const Summary = () => {
   ];
   const [open, setOpen] = useState(false);
 
-  // const handleOpenDownloadModal = () => {
-  //   setOpen(open);
-
-  // };
   return (
     <Grid container direction={"column"} xs={12} rowSpacing={0}>
       <Grid item>
         <Paper elevation={5}>
-          <Box sx={{ display: "flex" }}>
-            <Grid container xs={12} sx={{ display: "flex" }}>
-              <Grid item xs={12} sx={{}}>
-                <Box sx={{}}>
-                  <Grid
-                    container
-                    xs={12}
-                    sx={{
-                      padding: "20px",
-                      textAlign: "center",
-                    }}
-                  >
+          <Box>
+            <Grid container xs={12}>
+              <Grid item xs={12}>
+                <Box>
+                  <Grid container xs={12} className={styles.myGridCont_topBar}>
                     {data.map((item) => (
-                      <Grid xs={2} sx={{ marginBottom: "20px" }}>
-                        <span
-                          style={{
-                            display: "block",
-                            fontSize: "13px",
-                            fontWeight: "600",
-                          }}
-                        >
-                          {item.tittle}
-                        </span>
+                      <Grid className={styles.topBar_items} xs={2}>
+                        <span className={styles.item_title}>{item.tittle}</span>
 
-                        <span style={{ fontSize: "30px", fontWeight: "600" }}>
-                          {" "}
-                          {item.count}
-                        </span>
-                        <span
-                          style={{
-                            display: "block",
-                            fontSize: "13px",
-                            fontWeight: "600",
-                            marginTop: "20px",
-                          }}
-                        >
+                        <span className={styles.item_value}> {item.count}</span>
+                        <span className={styles.item_title1}>
                           {item.title2}
                         </span>
-                        <span style={{ fontSize: "30px", fontWeight: "600" }}>
+                        <span className={styles.item_value}>
                           {item.cost}
                           {item.isChipGreen ? <span>green</span> : <></>}
                           {item.isChipRed ? (
-                            <div
-                              style={{ display: "block", marginLeft: "-20px" }}
-                            >
+                            <div className={styles.chip}>
                               <MyChipCom />
                             </div>
                           ) : (
@@ -127,7 +96,7 @@ const Summary = () => {
           </Box>
         </Paper>
       </Grid>
-      <Grid item xs={4} sx={{ display: "flex", justifyContent: "end", marginTop: '20px' }}>
+      <Grid className={styles.modal} item xs={4}>
         <DownloadModal isOpen={open} />
       </Grid>
     </Grid>

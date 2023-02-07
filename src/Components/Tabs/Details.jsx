@@ -2,7 +2,7 @@ import { Grid, Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import TableDetails from "../Tables/Table-Details";
-
+import styles from "./styles/details.module.scss";
 const Details = () => {
   const data = [
     {
@@ -38,34 +38,15 @@ const Details = () => {
     <Grid container direction={"column"} xs={12} rowSpacing={5}>
       <Grid item>
         <Paper elevation={5}>
-          <Box sx={{ display: "flex" }}>
-            <Grid container xs={12} sx={{ display: "flex" }}>
+          <Box>
+            <Grid container xs={12}>
               <Grid item xs={12}>
                 <Box>
-                  <Grid
-                    container
-                    xs={12}
-                    sx={{
-                      padding: "20px",
-                      textAlign: "center",
-                    }}
-                  >
+                  <Grid container xs={12} className={styles.myGridCont_topBar}>
                     {data.map((item) => (
-                      <Grid xs={3} sx={{ marginBottom: "20px" }}>
-                        <span
-                          style={{
-                            display: "block",
-                            fontSize: "13px",
-                            fontWeight: "600",
-                          }}
-                        >
-                          {item.tittle}
-                        </span>
-
-                        <span style={{ fontSize: "30px", fontWeight: "600" }}>
-                          {" "}
-                          {item.count}
-                        </span>
+                      <Grid xs={3} className={styles.myGridItem_topBar}>
+                        <span className={styles.item_title}>{item.tittle}</span>
+                        <span className={styles.item_value}> {item.count}</span>
                       </Grid>
                     ))}
                   </Grid>

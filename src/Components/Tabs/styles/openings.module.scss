@@ -1,0 +1,31 @@
+:global(#app){
+    .myGridCont_topBar{
+        padding: 20px;
+        text-align: center;
+        .topBar_items{
+            margin-bottom: 20px;
+            .item_title{
+                display: block;
+                font-size: 13px;
+                font-weight: 600;
+            }
+            .item_value{
+                font-size: 30px;
+                font-weight: 600; 
+            }
+        }
+    }
+    .tip{
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .myGridItem_save{
+        display: flex;
+        justify-content: end;
+        margin-top: 20px;
+        .myButton_save{
+            width: 200px;
+        }
+    }
+}

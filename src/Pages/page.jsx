@@ -1,11 +1,12 @@
 import React from "react";
 import { Box, Grid, MenuItem, Paper, Select, Tab } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import CycleCount from "../Components/tabs/CycleCount";
-import Replenishment from "../Components/tabs/Replenishment";
-import Summary from "../Components/tabs/Summary";
-import Openings from "../Components/tabs/Openings";
-import Details from "../Components/tabs/Details";
+import CycleCount from "../Components/Tabs/CycleCount";
+import Replenishment from "../Components/Tabs/Replenishment";
+import Summary from "../Components/Tabs/Summary";
+import Openings from "../Components/Tabs/Openings";
+import Details from "../Components/Tabs/Details";
+import styles from "./styles/page.module.scss";
 
 const Page = () => {
   const [value, setValue] = React.useState("1");
@@ -55,42 +56,26 @@ const Page = () => {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <Paper
-        elevation={2}
-        sx={{
-          width: "90em",
-        }}
-      >
-        <Grid container maxWidth={"lg"} xs={12} sx={{ display: "flex" }}>
-          <Grid item sx={{ display: "block", float: "left" }} xs={7}>
+    <Box className={styles.myBox}>
+      <Paper elevation={2} className={styles.myPaper}>
+        <Grid container maxWidth={"lg"} xs={12} className={styles.myGridCont}>
+          <Grid item className={styles.myGridItem_selects} xs={7}>
             {data.map((item) => (
               <Box
+                className={styles.params_select}
                 component="span"
-                sx={{
-                  paddingTop: "20px",
-                  paddingLeft: "15px",
-                  display: "flex",
-                  width: "100%",
-                  height: "30px",
-                }}
                 key={`${item.title}-${item.value}`}
               >
-                <Box sx={{ width: "200px", paddingTop: "10px" }}>
+                <Box
+                  className={styles.tittle}
+                  sx={{ width: "200px", paddingTop: "10px" }}
+                >
                   <span>{item.title}</span>
                 </Box>
 
-                <Box>
+                <Box className={styles.selectBox}>
                   <Select
-                    sx={{
-                      width: "250px",
-                      height: "35px",
-                    }}
+                    className={styles.mySelect}
                     name={item.title}
                     value={item.value}
                     defaultValue={item.value}
@@ -110,36 +95,14 @@ const Page = () => {
             ))}
           </Grid>
 
-          <Grid
-            item
-            xs={5}
-            sx={{
-              float: "right",
-              display: "block",
-            }}
-          >
-            <Box
-              sx={{
-                display: "flex",
-                float: "right",
-                paddingTop: "20px",
-                paddingRight: "30px",
-              }}
-            >
-              <Box
-                sx={{
-                  paddingRight: "120px",
-                  paddingTop: "10px",
-                }}
-              >
+          <Grid item className={styles.myGridItem_order} xs={5}>
+            <Box className={styles.myBox_order}>
+              <Box className={styles.myBox_order_span}>
                 <span>Order</span>
               </Box>
 
               <Select
-                sx={{
-                  width: "250px",
-                  height: "35px",
-                }}
+                className={styles.mySelect_order}
                 value={availableValues[0].value}
                 onChange={handleChange}
               >
@@ -156,18 +119,17 @@ const Page = () => {
           </Grid>
         </Grid>
 
-        <Paper elevation={8} sx={{ margin: "30px" }}>
+        <Paper elevation={8} className={styles.myPaper_Tabs}>
           <Box
+            className={styles.myBox_Tabs}
             sx={{
-              maxWidth: "100%",
               typography: "body1",
             }}
           >
-            <TabContext value={value}>
+            <TabContext className={styles.myTabContext} value={value}>
               <Box
+                className={styles.myBox_tabList}
                 sx={{
-                  borderBottom: 1,
-                  borderColor: "divider",
                   backgroundColor: "rgb(219, 219, 219)",
                   borderTopLeftRadius: "4px",
                   borderTopRightRadius: "4px",

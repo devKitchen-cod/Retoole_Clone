@@ -1,0 +1,33 @@
+:global(#app){
+    .myGridCont_topBar{
+        padding: 20px;
+        text-align: center;
+        .topBar_items{
+            margin-bottom: 20px;
+            .item_title{
+                display: block;
+                font-size: 13px;
+                font-weight: 600;
+            }
+            .item_value{
+                font-size: 30px;
+                font-weight: 600;
+            }
+            .item_title1{
+                display: block;
+                font-size: 13px;
+                font-weight: 600;
+                margin-top: 20px;
+            }
+            .chip{
+                display: block;
+                margin-left: -20px;
+            }
+        }
+    }
+    .modal{
+        display: flex;
+        justify-content: end;
+        margin-top: 20px;
+    }
+}

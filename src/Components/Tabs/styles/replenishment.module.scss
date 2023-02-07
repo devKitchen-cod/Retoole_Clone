@@ -1,0 +1,70 @@
+:global(#app){
+    .myGridCont{
+        .myGridItem_topBar{
+            .myPaper_topBar{
+                .myBox_topBar{
+                    display: flex;
+                    .myGridCont_topBar{
+                        display: flex;
+                        justify-content: space-between !important;
+                        padding: 20px;
+                        text-align: center;
+                        margin-left: 30px;
+                       
+                        .item_title{
+                            display: block;
+                            font-size: 13px;
+                            font-weight: 600;
+                        }
+                        .item_value{
+                            font-size: 30px;
+                            font-weight: 600;
+                        }
+                    }
+                    .myBox_topBar_cost{
+                        margin-left: 50px;
+                        .myGridCont_items{
+                            padding: 20px;
+                            text-align: center;
+                          
+                                .budgetItem_title{
+                                    display: block;
+                                    font-size: 13px;
+                                    font-weight: 600;
+                                }
+                                .budgetItem_value{
+                                    font-size: 30px;
+                                    font-weight: 600;
+                                }
+                            
+                        }
+
+                    }
+                }
+            }
+        }
+        .myGridItem_orderNotes{
+            display: flex;
+            justify-content: end;
+            .myPaper_orderNotes{
+                height: 60px;
+                padding: 15px;
+                .myBox_orderNotes{
+                    margin-top: 10px;
+                    display: flex;
+                    span{
+                        margin-right: 15px;
+                        margin-top: 5px;
+                    }
+                    .myInput_orderNotes{
+                        margin-right: 10px;
+                        border-color: rgb(219,219,219) !important;
+                    }
+                    .myButton_orderNotes_save{
+                        width: 100px;
+                    }
+                }
+            }
+        }
+    }
+}

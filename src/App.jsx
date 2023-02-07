@@ -6,7 +6,12 @@ import styles from "./App.module.scss";
 import { router } from "./routing";
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <div>
+      <div className={styles.v}></div>
+      <RouterProvider classname={styles.v} router={router} />
+    </div>
+  );
 }
 
 export default App;

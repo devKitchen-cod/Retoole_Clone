@@ -1,0 +1,66 @@
+:global(#app) {
+    .myPaper{
+        margin: 10px;
+        .myBox{
+            margin: 20px;
+            padding-bottom: 18px;
+            .myGridCont{
+                .myGridItem_menu{
+                    .myBox_menu_date_count{
+                        margin: 5px;
+                        height: 6vh;
+                        display: flex;
+                        justify-content: start;
+                        align-content: baseline;
+                        .myBox_menu_date{
+                            margin-top: 10px;
+                        }
+                        .myBox_menu_input{
+                            margin-left: 78px;
+                        }
+                        .date_input{
+                            height: 15px;
+                            width: 200px;
+                            border: gray;
+                        }
+                    }
+                    .myBox_laundry{
+                        margin-top: 20px;
+                        display: flex;
+                        .mySelect_laundry{
+                            height: 30px;
+                            margin-left: 50px;
+                        }
+                    }
+                }
+                .myGridItem_topBar{
+                    margin-top: 30px;
+                    .myBox_topBar{
+                        height: 9vh;
+                        .myBox_item1, .myBox_item2, .myBox_item3{
+                            text-align: center;
+                            .item_title{
+                                display: block;
+                            }
+                            .item_value{
+                                font-size: 30px;
+                            }
+                        }
+                    }
+                }
+                .myGridItem_table{
+                    margin-top: 30px;
+                }
+                .myGridItem_save{
+                    display: flex;
+                    justify-content: end;
+                    margin-top: 1em;
+                    .myButton_save{
+                        width: 200px;
+                    }
+                }
+            }
+        }
+    }
+
+}
