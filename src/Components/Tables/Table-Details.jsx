@@ -20,6 +20,8 @@ import TableHead from "@mui/material/TableHead";
 import Input from "@mui/joy/Input";
 import { CheckBox } from "@mui/icons-material";
 import { rows } from "../mockData/mock-data-table-details";
+import StyledTableRow from "./styledComponents/styledRow";
+import StyledTableCell from "./styledComponents/styledCell";
 
 export function TablePaginationActions(props) {
   const theme = useTheme();
@@ -99,30 +101,11 @@ const header = [
   "Qty in Laundry",
   "Qty in Transit",
   "Qty On Shelf",
-  
 ];
 
 export default function CustomPaginationActionsTable() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  console.log(rows);
-  const StyledTableCell = styled(TableCell)(({ theme }) => ({
-    [`&.${tableCellClasses.head}`]: {
-      backgroundColor: "rgb(219, 219, 219)",
-      color: "black",
-    },
-    [`&.${tableCellClasses.body}`]: {
-      fontSize: 14,
-    },
-  }));
-
-  const StyledTableRow = styled(TableRow)(({ theme }) => ({
-    backgroundColor: "white",
-
-    "&:last-child td, &:last-child th": {
-      border: 0,
-    },
-  }));
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -135,6 +118,7 @@ export default function CustomPaginationActionsTable() {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+  const pagesNumb = [5, 10, 25, { label: "All", value: -1 }];
 
   return (
     <TableContainer component={Paper}>
@@ -142,7 +126,7 @@ export default function CustomPaginationActionsTable() {
         <TableHead>
           <TableRow>
             {header.map((item) => (
-              <StyledTableCell sx={{ fontSize: "12px"}}>
+              <StyledTableCell sx={{ fontSize: "12px" }}>
                 {item}
               </StyledTableCell>
             ))}
@@ -155,10 +139,10 @@ export default function CustomPaginationActionsTable() {
             : rows
           ).map((row) => (
             <StyledTableRow key={row.name}>
-              <StyledTableCell  component="th" scope="row">
+              <StyledTableCell component="th" scope="row">
                 {row.Item}
               </StyledTableCell>
-              <StyledTableCell  align="center" component="th" scope="row">
+              <StyledTableCell align="center" component="th" scope="row">
                 {/* <Input placeholder={row.ItemCost} variant='plain'/> */}
                 {row.TargetMarketQty}
               </StyledTableCell>
@@ -180,7 +164,6 @@ export default function CustomPaginationActionsTable() {
               <StyledTableCell align="center" component="th" scope="row">
                 {row.QtyOnShelf}
               </StyledTableCell>
-              
             </StyledTableRow>
           ))}
 
@@ -193,7 +176,7 @@ export default function CustomPaginationActionsTable() {
         <TableFooter>
           <TableRow>
             <TablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
+              rowsPerPageOptions={pagesNumb}
               colSpan={12}
               count={rows.length}
               rowsPerPage={rowsPerPage}

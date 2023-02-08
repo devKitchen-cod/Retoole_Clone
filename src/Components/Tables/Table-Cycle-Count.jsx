@@ -18,6 +18,8 @@ import LastPageIcon from "@mui/icons-material/LastPage";
 import { styled } from "@mui/material/styles";
 import TableHead from "@mui/material/TableHead";
 import { rows } from "../mockData/mock-data-table-cycle-count";
+import  StyledTableCell from "./styledComponents/styledCell";
+import StyledTableRow from "./styledComponents/styledRow";
 
 export function TablePaginationActions(props) {
   const theme = useTheme();
@@ -98,23 +100,6 @@ export default function CustomPaginationActionsTable() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  const StyledTableCell = styled(TableCell)(({ theme }) => ({
-    [`&.${tableCellClasses.head}`]: {
-      backgroundColor: "rgb(209, 209, 209)",
-      color: "black",
-    },
-    [`&.${tableCellClasses.body}`]: {
-      fontSize: 14,
-    },
-  }));
-
-  const StyledTableRow = styled(TableRow)(({ theme }) => ({
-    backgroundColor: "white",
-
-    "&:last-child td, &:last-child th": {
-      border: 0,
-    },
-  }));
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -127,6 +112,7 @@ export default function CustomPaginationActionsTable() {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+  const pagesNumb = [5, 10, 25, { label: "All", value: -1 }]
 
   return (
     <TableContainer component={Paper}>
@@ -162,7 +148,7 @@ export default function CustomPaginationActionsTable() {
         <TableFooter>
           <TableRow>
             <TablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
+              rowsPerPageOptions={pagesNumb}
               colSpan={4}
               count={rows.length}
               rowsPerPage={rowsPerPage}
